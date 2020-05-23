@@ -22,12 +22,12 @@ public class CardReader {
 	    PTEID_EIDCard card = context.getEIDCard();
 	    PTEID_EId eid = card.getID();
 	    
-	    System.out.println(getCompleteName(card));
+	    System.out.println(CardInfo.getCompleteName(card));
 	    
 	    String nrCC = eid.getDocumentNumber();
 	    System.out.println(nrCC);
 	    
-	    getPngFile(card, "foto.png");
+	    CardInfo.getPngFile(card, "foto.png");
 		
 	    PTEID_ReaderSet.releaseSDK();
 	}
@@ -38,31 +38,6 @@ public class CardReader {
     }
 
 
-    static void getPngFile(PTEID_EIDCard card, String filename){
-	try {
-	    PTEID_EId eid = card.getID();
-	    PTEID_Photo photoObj = eid.getPhotoObj();
-	    PTEID_ByteArray ppng = photoObj.getphoto();	// formato PNG
-	    ppng.writeToFile(filename);
-	    return;
-	}
-	catch (PTEID_Exception e){
-	    e.printStackTrace();
-	    return;
-	}
-		   
-    }
-    
-    static String getCompleteName(PTEID_EIDCard card){
-	try {
-	    PTEID_EId eid = card.getID();
-	    return eid.getGivenName() + " " + eid.getSurname();	
-	}
-	catch(PTEID_Exception e) {
-	    e.printStackTrace();
-	    return "";
-	}
-    }
 
     
 }
