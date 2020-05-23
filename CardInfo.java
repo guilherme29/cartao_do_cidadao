@@ -42,7 +42,56 @@ public class CardInfo {
 	}
     }
 
+    static String getAddress(PTEID_EIDCard card, String pinCode){
+	try {
+	    PTEID_EId eid = card.getID();
+	    String address = "";
+	    
+	    PTEID_ulwrapper triesLeft = new PTEID_ulwrapper(-1);
+	    PTEID_Pins pins = card.getPins();
+	    PTEID_Pin pin = pins.getPinByPinRef(PTEID_Pin.ADDR_PIN);
 
+	    if (pin.verifyPin(pinCode, triesLeft, true)){
+       		PTEID_Address addr =  card.getAddr();
+
+		String country = addr.getCountryCode(); 
+		String district = addr.getDistrict();
+		String municipality  =  addr.getMunicipality();
+		String civilParish = addr.getCivilParish();
+		String street = addr.getStreetName();
+		String doorNo = addr.getDoorNo();
+		String floor = addr.getFloor();
+		String side = addr.getSide();
+		String locality = addr.getLocality();
+		String zip4 = addr.getZip4();
+		String zip3 = addr.getZip3();
+		String postalLocality = addr.getPostalLocality();
+
+		address = country + " " +
+		    district + " " +
+		    municipality + " " +
+		    civilParish + " " +
+		    street + " " +
+		    doorNo + " " +
+		    floor + " " +
+		    side + " " +
+		    locality + " " +
+		    zip4 + "-" + zip3 + " " +
+		    postalLocality;
+	      		
+	    }
+	    
+	    
+	    return address;
+	}
+	catch(PTEID_Exception e) {
+	    e.printStackTrace();
+	    return "";
+	}
+
+
+
+    }
 
 
 

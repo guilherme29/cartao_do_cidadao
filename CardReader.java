@@ -24,11 +24,13 @@ public class CardReader {
 	    
 	    System.out.println(CardInfo.getCompleteName(card));
 	    
-	    String nrCC = eid.getDocumentNumber();
-	    System.out.println(nrCC);
+	    //String nrCC = eid.getDocumentNumber();
+	    //System.out.println(nrCC);
+
+	    System.out.println(CardInfo.getAddress(card, "0000"));
+
 	    
-	    CardInfo.getPngFile(card, "foto.png");
-		
+	    //CardInfo.getPngFile(card, "foto.png");
 	    PTEID_ReaderSet.releaseSDK();
 	}
 	catch (Exception e) {
