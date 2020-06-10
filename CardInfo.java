@@ -93,6 +93,37 @@ public class CardInfo {
 
     }
 
+    static boolean writeToCard(PTEID_EIDCard card, String pinCode, String toWrite){
+	try {
+
+	    PTEID_ulwrapper triesLeft = new PTEID_ulwrapper(-1);
+	    	    	    
+	    // Writing
+	    PTEID_ByteArray pb = new PTEID_ByteArray(toWrite.getBytes(), toWrite.getBytes().length);
+	    boolean bOk = card.writePersonalNotes(pb, card.getPins().getPinByPinRef(PTEID_Pin.AUTH_PIN));
+	    return bOk;
+
+		//}
+	}
+	catch(PTEID_Exception e){
+	    e.printStackTrace();
+	    
+	}
+	return false;
+	
+    }
+
+    static String readFromCard(PTEID_EIDCard card, String pinCode){
+	try {
+	    return card.readPersonalNotes();
+	    	    
+	}
+	catch(PTEID_Exception e){
+	    e.printStackTrace();
+	    
+	}
+	return null;
+    }
 
 
 }
