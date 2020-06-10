@@ -93,7 +93,7 @@ public class CardInfo {
 
     }
 
-    static boolean writeToCard(PTEID_EIDCard card, String pinCode, String toWrite){
+    static boolean writeToCard(PTEID_EIDCard card, String toWrite){
 	try {
 
 	    PTEID_ulwrapper triesLeft = new PTEID_ulwrapper(-1);
