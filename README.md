@@ -27,6 +27,9 @@ java CardIO write <path to file>
 # read notes from card
 java CardIO read <Authentication pin>
 
+# to read ssh key from the card notes and automatically do ssh to a given address
+./ssh_authenticate.sh <Authentication pin> <user@localhost>
+
 ```
 
 ## Extra info
