@@ -18,7 +18,7 @@ public class CardIO {
     
     public static void main(String[] args) {
 	if(args.length == 0 || args.length > 3){
-	    info();
+	    help();
 	    return;
       	}
 	
@@ -31,7 +31,7 @@ public class CardIO {
 
 	    switch(args[0]){
 
-	    case "info":{
+	    case "id":{
 		//java CardIO info
 		PTEID_EId eid = card.getID();
 		String nrCC = eid.getDocumentNumber();
@@ -82,13 +82,6 @@ public class CardIO {
 		
 
 	    }
-
-	    	    
-	    //System.out.println(CardInfo.readFromCard(card, "2243"));
-	    
-	    //CardInfo.getPngFile(card, "foto.png");
-
-
 	    PTEID_ReaderSet.releaseSDK();
 	}
 	catch (Exception e) {
@@ -98,10 +91,10 @@ public class CardIO {
 	}
     }
 
-    private static void info(){
+    private static void help(){
 	System.out.println("Always be careful using this program, if you miss the pin more than 3 times your card will become blocked.");
 	System.out.println();
-	System.out.println("\'java CardIO info\' to get basic information about card owner");
+	System.out.println("\'java CardIO id\' to get basic information about card owner");
 	System.out.println("\'java CardIO picture filename\' to save the picture to the given filename");
 	System.out.println("\'java CardIO address <Address pin>\' to read the address information. Default: 0000");
 	System.out.println("\'java CardIO write path\' to write to the card - you will need to insert the authentication pin after running twice");
