@@ -7,7 +7,7 @@ The CardIO utility let's you easily:
 * The owner's address, provided you run it with the 'address pin' code (there are multiple pins, this one by default is 0000)
 * Read and write to the card notes (1Kb size max)
 
-The repo also includes a small script. What this script does is, provided you already wrote an ssh key to the card (can have 1Kb max size) automatically reads from the card said key and ssh connects you to a given address.
+The repo also includes a small script that, provided you already wrote an ssh key to the card (can have 1Kb max size), automatically reads from the card said key and ssh connects you to a given address.
 
 ## How to use
 ```bash
