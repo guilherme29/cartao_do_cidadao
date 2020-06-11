@@ -32,7 +32,7 @@ public class CardIO {
 	    switch(args[0]){
 
 	    case "id":{
-		//java CardIO info
+		//java CardIO id
 		PTEID_EId eid = card.getID();
 		String nrCC = eid.getDocumentNumber();
 		System.out.println(nrCC);
